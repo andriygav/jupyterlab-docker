@@ -21,11 +21,11 @@ RUN apt-get install -y ca-certificates curl gnupg lsb-release \
     && apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 COPY src/jupyter/requirements.txt /tmp/
-RUN cat /tmp/requirements.txt | xargs --no-run-if-empty -l python -m pip install \
+RUN cat /tmp/requirements.txt | xargs --no-run-if-empty -l python3 -m pip install \
     && rm -rf /tmp/* /root/.cache/*
 
 COPY src/trainer/requirements.txt /tmp/
-RUN cat /tmp/requirements.txt | xargs --no-run-if-empty -l python -m pip install \
+RUN cat /tmp/requirements.txt | xargs --no-run-if-empty -l python3 -m pip install \
     && rm -rf /tmp/* /root/.cache/*
 
 COPY ./config /config
