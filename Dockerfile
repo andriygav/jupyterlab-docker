@@ -10,7 +10,8 @@ RUN apt-get install -y \
     dnsutils \
     iputils-ping \
     htop \
-    s3cmd
+    s3cmd \
+    python3-pip
     
 RUN apt-get install -y ca-certificates curl gnupg lsb-release \
     && mkdir -p /etc/apt/keyrings \
