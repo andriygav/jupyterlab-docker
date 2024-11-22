@@ -8,7 +8,8 @@ services:
       timeout: 2s
       retries: 5
     volumes:
-    - ${PWD}:/workspace
+    - data:/workspace
+    - ${PWD}/config:/config
     ports:
     - 9090:9090
     deploy:
@@ -23,3 +24,11 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+
+volumes:
+  data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /tmp
