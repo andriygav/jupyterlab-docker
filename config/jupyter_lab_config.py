@@ -1,5 +1,6 @@
 c.ServerApp.ip = '0.0.0.0'
 c.ServerApp.password = u''
+c.ServerApp.password_required = False
 c.ServerApp.token=''
 c.ServerApp.open_browser = False
 c.NotebookApp.enable_mathjax = False

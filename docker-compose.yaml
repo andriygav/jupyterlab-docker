@@ -1,0 +1,27 @@
+version: "4.8"
+
+services:
+  notebook:
+    image: andriygav/jupyterlab-notebook:latest
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://notebook:9090/"]
+      interval: 10s
+      timeout: 2s
+      retries: 5
+    volumes:
+    - ${PWD}:/workspace
+    ports:
+    - 9090:9090
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 1500M
+        reservations:
+          memory: 1500M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
